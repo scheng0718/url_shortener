@@ -31,13 +31,19 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 // 短網址轉址頁面
-// app.get('/:shortUrl', (req, res) => {
-//   res.render('result')
-// })
+app.get('/:shortUrl', (req, res) => {
+  const shortUrl = req.params.shortUrl
+  Url.findOne({shortUrl})
+    .then(url => {
+      const originalUrl = url.originalUrl
+      res.redirect(originalUrl)
+    })
+    .catch(error => console.error(error))
+})
 // 處理縮網址的 POST 請求
 app.post('/urls', (req, res) => {
   const originalUrl = req.body.url
-  Url.find({originalUrl, originalUrl})
+  Url.find({originalUrl})
     .lean()
     .then(url => {
       if (url.length !== 0) {
@@ -51,7 +57,7 @@ app.post('/urls', (req, res) => {
         res.render('result', {shortUrl})
       }
     })
-    .catch(error => console.log(error))
+    .catch(error => console.error(error))
 })
 
 app.listen(3000, () => {
