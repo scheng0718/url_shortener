@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const Url = require('./models/record')
+const generateShortId = require('./generate_shortId')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -39,14 +40,13 @@ app.post('/urls', (req, res) => {
   Url.find({originalUrl, originalUrl})
     .lean()
     .then(url => {
-      console.log(url)
       if (url.length !== 0) {
         console.log('URL is existing in the database already')
         const shortUrl = url[0].shortUrl
         res.render('result', {shortUrl})
       } else {
         console.log('URL is not existing in the database')
-        const shortUrl = '1A2Bc'
+        const shortUrl = generateShortId()
         Url.create({originalUrl, shortUrl})
         res.render('result', {shortUrl})
       }
