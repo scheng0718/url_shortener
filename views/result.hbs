@@ -1,7 +1,7 @@
 <div>
   <h2>Success! Please use this link: </h2>
-  <a href="http://localhost:3000/{{ shortUrl }}" target="_blank">http://localhost:3000/{{ shortUrl }}</a>
+  <a id="target_url" href="http://localhost:3000/{{ shortUrl }}" target="_blank">http://localhost:3000/{{ shortUrl }}</a>
 </div>
 <div class="text-center">
-  <button type="submit" class="btn btn-primary mt-3">Copy</button>
+  <button id="copy_btn" onClick="copyUrl()" type="submit" class="btn btn-primary mt-3">Copy</button>
 </div>
