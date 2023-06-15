@@ -53,7 +53,13 @@ app.post('/urls', (req, res) => {
         res.render('result', {shortUrl})
       } else {
         console.log('URL is not existing in the database')
-        const shortUrl = generateShortId()
+        let shortUrl = generateShortId()
+        // 處理資料庫 shortId 重複問題
+        const existingUrl = Url.findOne({ shortUrl }).lean()
+        if (existingUrl) {
+          console.log('Duplicated shortUrl. Regenerated!')
+          shortUrl = generateShortId()
+        }
         Url.create({originalUrl, shortUrl})
         res.render('result', {shortUrl})
       }
