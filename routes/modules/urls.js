@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Url = require('../../models/record')
-const generateShortId = require('../../generate_shortId')
+const generateShortId = require('../../functions/generate_shortId')
 // 處理縮網址的 POST 請求
 router.post('/', (req, res) => {
   const originalUrl = req.body.url

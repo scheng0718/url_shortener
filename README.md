@@ -5,14 +5,19 @@ URL Shortener is a web application that generates short URLs for long URL. It pr
 ## Features
 
 1. **Homepage**: The homepage includes navbar and a form where users can enter their original URL. After submitting the form, clicking the "Shorten URL" button will return a formatted short URL.
-2. **Redirection**: During the server runtime, when a user visits a shortened URL, they are redirected to the original long URL.
+![web screenshot](./screenshots/index_page.png)
+2. **Input Validation**: The application validates user input to ensure that the entered URL is not empty and is a valid web address.
+![web screenshot](./screenshots/invalid_message.png)
+![web screenshot](./screenshots/valid_message.png)
 3. **Short URL Format**: Shortened URLs are formatted as "http://localhost:3000/mpST9" and consist of a randomly generated five-character combination of uppercase and lowercase letters along with numbers. The code logic ensures that each generated short ID is unique and not duplicated. 
-4. **Express Framework**: The application is built using the Express framework, providing a robust and efficient server-side structure.
-5. **Handlebars Template Engine**: Handlebars is used as the template engine to dynamically render HTML content with data.
-6. **MongoDB Database**: The application utilizes MongoDB and Mongoose as the object modeling tool for interacting with the database.
-7. **User-Friendly Interface**: The web interface is designed to be intuitive and user-friendly, allowing users to easily input and shorten URLs.
-8. **URL Copying**: Users can copy the shortened URL with a single click, making it convenient for sharing.
-9. **Input Validation**: The application validates user input to ensure that the entered URL is not empty and is a valid web address.
+![web screenshot](./screenshots/result_page.png)
+4. **URL Copying**: Users can copy the shortened URL with a single click, making it convenient for sharing.
+![web screenshot](./screenshots/copy_link.png)
+5. **Redirection**: During the server runtime, when a user visits a shortened URL, they are redirected to the original long URL.
+6. **User-Friendly Interface**: The web interface is designed to be intuitive and user-friendly, allowing users to easily input and shorten URLs.
+7. **Express Framework**: The application is built using the Express framework, providing a robust and efficient server-side structure.
+8. **Handlebars Template Engine**: Handlebars is used as the template engine to dynamically render HTML content with data.
+9. **MongoDB Database**: The application utilizes MongoDB and Mongoose as the object modeling tool for interacting with the database.
 
 ## Prerequisites
 
