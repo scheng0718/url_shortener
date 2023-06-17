@@ -1,16 +1,9 @@
-function sample(array) {
-  const randomIndex = Math.floor(Math.random() * array.length)
-  return array[randomIndex]
-}
 function generateShortId(shortenUrlLength) {
-  const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
-  const upperCaseLetters = lowerCaseLetters.toUpperCase()
-  const numbers = '0123456789'
-  let collections = []
-  collections = collections.concat([...lowerCaseLetters]).concat([...upperCaseLetters]).concat([...numbers])
+  const combinations = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   let shortId = ''
   for (let i = 0; i < shortenUrlLength; i++) {
-    shortId += sample(collections)
+    const randomIndex = Math.floor(Math.random() * combinations.length)
+    shortId += combinations[randomIndex]
   }
   return shortId
 }
