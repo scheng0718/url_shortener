@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 })
 // 每次生成新的 shortUrl 都查詢資料庫，生成唯一沒有重複的 shortUrl
 function generateUniqueShortId() {
-  const shortUrl = generateShortId(6)
+  const shortUrl = generateShortId(5)
   return Url.findOne({ shortUrl: shortUrl })
     .lean()
     .then(record => {
