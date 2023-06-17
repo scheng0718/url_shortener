@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Url = require('../../models/record')
-const generateShortId = require('../../functions/generate_shortId')
+const generateShortId = require('../../utils/generate_shortId')
 // 處理縮網址的 POST 請求
 router.post('/', (req, res) => {
   const originalUrl = req.body.url
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 })
 // 每次生成新的 shortUrl 都查詢資料庫，生成唯一沒有重複的 shortUrl
 function generateUniqueShortId() {
-  const shortUrl = generateShortId()
+  const shortUrl = generateShortId(6)
   return Url.findOne({ shortUrl: shortUrl })
     .lean()
     .then(record => {
